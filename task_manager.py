@@ -74,5 +74,16 @@ class TaskManager:
 
     # --- delete feature ---
     def delete_task(self, task_id):
-        """Delete a task (not implemented yet)."""
-        raise NotImplementedError("Deleting tasks is not available yet.")
+        """Delete the task with this ID and return it.
+
+        Raises ValueError if the ID is not a positive whole number
+        or if no task has that ID.
+        """
+        if not isinstance(task_id, int) or isinstance(task_id, bool) or task_id < 1:
+            raise ValueError("Task ID must be a positive whole number.")
+        task = self.find_task(task_id)
+        if task is None:
+            raise ValueError(f"No task found with ID {task_id}.")
+        self.tasks.remove(task)
+        self.save()
+        return task
