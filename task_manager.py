@@ -73,6 +73,8 @@ class TaskManager:
         task = self.find_task(task_id)
         if task is None:
             raise ValueError(f"No task found with ID {task_id}.")
+        if task.completed:
+            raise ValueError(f"Task {task_id} is already completed.")
         task.completed = True
         self.save()
         return task

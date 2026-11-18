@@ -39,7 +39,16 @@ def handle_display(manager):
 
 
 def handle_complete(manager):
-    print("Completing tasks is coming soon.")
+    handle_display(manager)
+    task_id = ask_task_id()
+    if task_id is None:
+        return
+    try:
+        task = manager.complete_task(task_id)
+    except ValueError as error:
+        print(f"Error: {error}")
+        return
+    print(f"Completed: {task}")
 
 
 def handle_delete(manager):
