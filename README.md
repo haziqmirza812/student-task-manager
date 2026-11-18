@@ -7,4 +7,4 @@ Python console Student Task Manager - CSC418 DevOps Lab Assignment 4 (Git &amp; 
 python main.py
 ```
 
-Project status: In Progress - core features done
+Project status: In Progress - testing underway
