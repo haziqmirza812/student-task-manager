@@ -6,3 +6,5 @@ Python console Student Task Manager - CSC418 DevOps Lab Assignment 4 (Git &amp; 
 ```bash
 python main.py
 ```
+
+Project status: Planning
