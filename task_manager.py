@@ -79,8 +79,15 @@ class TaskManager:
 
     # --- complete feature ---
     def complete_task(self, task_id):
-        """Mark a task as completed (not implemented yet)."""
-        raise NotImplementedError("Completing tasks is not available yet.")
+        """Mark the task with this ID as completed and return it."""
+        task = self.find_task(task_id)
+        if task is None:
+            raise ValueError(f"No task found with ID {task_id}.")
+        if task.completed:
+            raise ValueError(f"Task {task_id} is already completed.")
+        task.completed = True
+        self.save()
+        return task
 
     # --- delete feature ---
     def delete_task(self, task_id):
