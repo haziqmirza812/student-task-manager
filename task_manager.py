@@ -4,6 +4,8 @@ import json
 import os
 from dataclasses import asdict, dataclass
 
+MAX_TITLE_LENGTH = 100
+
 
 @dataclass
 class Task:
@@ -55,6 +57,8 @@ class TaskManager:
         if title is None or not str(title).strip():
             raise ValueError("Task title cannot be empty.")
         title = str(title).strip()
+        if len(title) > MAX_TITLE_LENGTH:
+            raise ValueError(f"Task title cannot exceed {MAX_TITLE_LENGTH} characters.")
         task = Task(self.next_id, title)
         self.tasks.append(task)
         self.next_id += 1

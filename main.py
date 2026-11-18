@@ -25,7 +25,11 @@ def ask_task_id():
 
 def handle_add(manager):
     title = input("Task title: ")
-    task = manager.add_task(title)
+    try:
+        task = manager.add_task(title)
+    except ValueError as error:
+        print(f"Error: {error}")
+        return
     print(f"Added: {task}")
 
 
