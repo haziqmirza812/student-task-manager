@@ -41,7 +41,7 @@ class TestTaskManager(unittest.TestCase):
         self.manager.add_task("Task two")
         self.manager.delete_task(first.id)
         remaining = self.manager.list_tasks()
-        self.assertEqual(len(remaining), 2)
+        self.assertEqual(len(remaining), 1)
         self.assertIsNone(self.manager.find_task(first.id))
 
     def test_delete_task_with_invalid_id(self):
